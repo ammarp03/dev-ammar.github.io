@@ -5,6 +5,7 @@ import logo from "../assets/img/logo.svg";
 import navIcon1 from "../assets/img/nav-icon1.svg";
 import navIcon2 from "../assets/img/nav-icon2.svg";
 import navIcon3 from "../assets/img/nav-icon3.svg";
+import pdf from "../assets/img/resume.pdf";
 const nav_Links = [
 	{
 		display: "Home",
@@ -22,7 +23,6 @@ const nav_Links = [
 ];
 
 export const NavBar = () => {
-	
 	const [scrolled, setScrolled] = useState(false);
 
 	useEffect(() => {
@@ -38,8 +38,6 @@ export const NavBar = () => {
 
 		return () => window.removeEventListener("scroll", onScroll);
 	}, []);
-
-	
 
 	return (
 		<Navbar expand="md" className={scrolled ? "scrolled" : ""}>
@@ -72,9 +70,17 @@ export const NavBar = () => {
 								<img src={navIcon3} alt="" />
 							</a>
 						</div>
-						<button  className="contact" onClick={() => console.log("connect")}>
-						<NavLink smoth  to='./connect'><span >Let’s Connect </span></NavLink>	
-						</button>
+						<NavLink smoth to="./connect">
+							<button className="connect-button">Let’s Connect </button>
+						</NavLink>
+						<a href={pdf} download={pdf}>
+							<button
+								className="contact"
+								onClick={() => console.log("connect")}
+							>
+								<span>Get Resume</span>
+							</button>
+						</a>
 					</span>
 				</Navbar.Collapse>
 			</Container>
